@@ -36,6 +36,15 @@ const assetsSchema = new mongoose.Schema(
     length: {
       type: Number,
     },
+    // Add content field to store story text
+    content: {
+      type: String,
+    },
+    // Flag to identify if this asset is a story
+    isStory: {
+      type: Boolean,
+      default: false,
+    },
     // Add the new wordDurations field to store timing information
     wordDurations: {
       type: [wordDurationSchema],
