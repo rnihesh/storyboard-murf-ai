@@ -3,6 +3,7 @@ import { UserContext } from "../contexts/UserContext";
 import { murfApi } from "../services/api";
 import { FiType, FiMic, FiVolume2, FiUpload, FiRefreshCw } from "react-icons/fi";
 import AudioPlayer from "./AudioPlayer";
+import {getBaseUrl} from "../utils/config"
 
 const TranslationPanel = () => {
   const { user } = useContext(UserContext);
@@ -113,7 +114,7 @@ const TranslationPanel = () => {
       formData.append("userId", user._id);
       
       // Send the file directly to the server
-      const response = await fetch("http://localhost:3000/api/murf/translate-speech", {
+      const response = await fetch(`${getBaseUrl()}/api/murf/translate-speech`, {
         method: "POST",
         body: formData,
       });
